@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Management Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #428cfa, #9b68ec);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 700px;
+        }
+        .btn-custom {
+            margin: 10px;
+            font-size: 18px;
+            padding: 12px 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 class="mb-4">Welcome to the Training Management Portal</h1>
+        <p class="lead">
+            This system helps employees complete their assigned courses and upload certificates, 
+            while HR can easily track and verify progress.
+        </p>
+
+        <div class="mt-4">
+            <a href="{% url 'login' %}" class="btn btn-warning btn-custom" style="background-color: white;" >Employee Login</a>
+            <a href="/admin/" class="btn btn-warning btn-custom " style="background-color: #0b0318; color: white;">HR/Admin Login</a>
+        </div>
+    </div>
+</body>
+</html>

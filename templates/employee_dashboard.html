@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block navbar_links %}
+
+    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+<form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="nav-link btn btn-link" style="display:inline;  border:none; background:none;">
+        Logout
+    </button>
+</form>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Welcome, {{ user.username }} 👋</h2>
+            <p class="lead">This is your training dashboard. From here you can view your assigned courses and upload certificates after completion.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- My Courses Card -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">📘 My Courses</h5>
+                    <p class="card-text">View all your assigned training courses and check their status.</p>
+                    <a href="{% url 'my_courses' %}" class="btn btn-primary">Go to My Courses</a>
+                </div>
+            </div>
+        </div>
+
+    <div class="row mt-4">
+        <!-- Logout -->
+        <div class="col-md-12 text-center">
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger">Logout</button>
+            </form>     
+        </div>
+    </div>
+{% endblock %}
+

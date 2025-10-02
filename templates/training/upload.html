@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block navbar_links %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'my_courses' %}">My Courses</a></li>
+    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'employee_dashboard' %}">My Dashboard</a></li>
+<form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="nav-link btn btn-link" style="display:inline; border:none; background:none;">
+        Logout
+    </button>
+</form>
+
+
+{% endblock %}
+{% block content %}
+<h2>Upload Certificate for {{ course.name }}</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
+

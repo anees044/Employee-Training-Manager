@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block navbar_links %}
+     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h2 class="text-center">Login</h2>
+        <form method="post" >
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" required id="username" >
+            </div>
+            <div class="mb-3">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" required id="password" autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
